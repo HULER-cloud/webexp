@@ -39,9 +39,6 @@ export default {
       }
 
     },1000)
-    // this.timer_stock_data=setInterval(()=>{
-    //    this.getStockPrice()
-    // },5000)
   },
   methods:{
     getStockPrice(){

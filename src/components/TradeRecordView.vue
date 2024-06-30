@@ -23,10 +23,10 @@ export default {
   },
   computed:{
     currentPageData() {
-            const start = (this.currentPage - 1) * this.pageSize;
-            const end = this.currentPage * this.pageSize;
-            return this.trade_record_all.slice().reverse().slice(start, end);
-          },
+      const start = (this.currentPage - 1) * this.pageSize;
+      const end = this.currentPage * this.pageSize;
+      return this.trade_record_all.slice().reverse().slice(start, end);
+    },
     trade_record_all(){
       return this.trade_record.map((item)=>({
         ...item,

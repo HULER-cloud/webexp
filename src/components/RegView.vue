@@ -31,9 +31,6 @@ export default {
         }
     },
     methods:{
-        // jump(){
-        //     this.$router.push({path: '/Log'}) //返回登录界面
-        // },
         Reg(){
             // 发送请求
             if (this.password !== this.passwordAgain) {

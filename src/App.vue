@@ -8,8 +8,11 @@
 <script>
 import WebHeader from "@/components/WebHeader.vue";
 import  {ref} from 'vue'
+import axios from "axios";
+
 
 export default {
+
   data(){
     const balance=ref(0)
     return {
@@ -28,10 +31,30 @@ export default {
   name: 'App',
   components: {
     WebHeader,
-  },
-  created(){
+
   },
   methods: {
+    getBalance(){
+      axios.get('http://127.0.0.1:12345/getBalance', {
+        params:{
+          username: this.$root.username,
+        }
+      }).then(res=>{
+        if(res.data!==-1){
+          this.$root.balance=res.data
+        }else{
+          this.$message({
+            type:'error',
+            message:'获取用户余额失败'
+          });
+        }
+      }).catch(error=>{
+        this.$message({
+          type:'error',
+          message:error.message
+        });
+      });
+    }
   }
 }
 

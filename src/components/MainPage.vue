@@ -10,14 +10,9 @@ export default {
     const chart_visible = ref(false)
     const form_visible = ref(false)
     const tradeForm = reactive({
-      name: '',
-      region: '',
-      date1: '',
-      date2: '',
-      delivery: false,
-      type: [],
-      resource: '',
-      desc: '',
+      // direction:0,
+      // price:0,
+      // amount:0,
     })
     return {
       chart_visible,
@@ -34,7 +29,6 @@ export default {
         Name:"temp",
         Price:0,
       })),
-      timer_stocks:null,
       countdown:5,
       timer_countdown:null,
       stock_code:"",
@@ -54,7 +48,6 @@ export default {
       // 将涨跌价和涨跌幅合并到对象数组里面
       return this.stocks.map((item,index)=>({...item,Amount:this.amount[index].toFixed(2),Ratio:(this.ratio[index]*100).toFixed(2)+"%"}))
     },
-
   },
   mounted() {
     this.getMarketPrice()
@@ -251,7 +244,7 @@ export default {
               <el-table-column prop="Ratio" label="当日涨跌幅" />
               <el-table-column label="操作">
                 <template #default="scope">
-                  <el-button link type="primary" plain size="medium" @click="handleChartClick(scope)">
+                  <el-button type="primary" plain size="medium" @click="handleChartClick(scope)">
                     查看详情
                   </el-button>
                   <el-button type="primary" :disabled="this.$root.state===0" size="medium" @click="handleTradeClick(scope)">
@@ -270,7 +263,7 @@ export default {
               <el-table-column prop="Ratio" label="当日涨跌幅" />
               <el-table-column label="操作">
                 <template #default="scope">
-                  <el-button link type="primary" plain size="medium" @click="handleChartClick(scope)">
+                  <el-button type="primary" plain size="medium" @click="handleChartClick(scope)">
                     查看详情
                   </el-button>
                   <el-button type="primary" :disabled="this.$root.state===0" size="medium" @click="handleTradeClick(scope)">

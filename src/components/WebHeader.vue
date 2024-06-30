@@ -6,7 +6,6 @@
     name:"WebHeader",
     data(){
       return {
-
       }
     },
     methods:{
@@ -26,7 +25,7 @@
           }
         }).catch(error=>{
           this.$message({
-            type:'success',
+            type:'error',
             message:error.message
           });
         });
